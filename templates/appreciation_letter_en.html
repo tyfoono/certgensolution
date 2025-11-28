@@ -155,20 +155,20 @@
   <div class="page">
     <div class="header">
       <div class="logo">
-        <img src="logo2.png" alt="Сириус" class="logo-image"/>
+        <img src="src/logo2.png" alt="Сириус" class="logo-image"/>
       </div>
 
       <div class="title-block">
         <div class="title-main">Appreciation letter</div>
-        <div class="event-name">Название конкурса</div>
+        <div class="event-name">{{ event_name }}</div>
       </div>
     </div>
 
     <div class="content">
 <div class="award-yvaf">Dear</div>
       <div class="recipient-block">
-        <div class="recipient-lastname">ФАМИЛИЯ</div>
-        <div class="recipient-name">Имя Отчество</div>
+        <div class="recipient-lastname">{{ surname }}</div>
+        <div class="recipient-name">{{ name }}</div>
       </div>
 
       <div class="award-label">We sincerely thank you for participating in the competition and for your efforts. We appreciate the time and creativity you have put into it.
@@ -183,7 +183,7 @@ We wish you inspiration and further success!</div>
           <div class="director-signline"></div>
         </div>
          <div class="signature-block">
-          <img src="подпись.png" alt="Подпись" class="director-signature"/>
+          <img src="src/signature.png" alt="Подпись" class="director-signature"/>
         <div class="director-name">
           ELENA SHMELEVA
           <br />
@@ -194,9 +194,8 @@ We wish you inspiration and further success!</div>
 
       <div class="footer">
         <div>Russian Federation<br />Federal Territory of Sirius</div>
-        <div>November 14, 2025</div>
+        <div>{{date}}</div>
       </div>
     </div>
-  </div>
 </body>
 </html>
