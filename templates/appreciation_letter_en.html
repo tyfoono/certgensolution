@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Диплом</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "DejaVu Sans", Arial, sans-serif;
+    }
+
+    .page {
+      position: relative;
+      width: 210mm;
+      height: 297mm;
+      box-sizing: border-box;
+      background: #ffffff;
+    }
+
+   
+    .header {
+      position: relative;
+      height: 35%;
+      background-color: #f8877f;
+      color: #000000;
+      padding: 25mm 25mm 0 25mm;
+      box-sizing: border-box;
+    }
+
+    .logo-image {
+        height: 28mm;
+        width: 72mm;
+       position: absolute;
+       top: -10px;
+       left: -10px;
+    
+
+    }
+    
+
+    .title-block {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 25mm;
+      text-align: center;
+    }
+
+    .title-main {
+      font-size: 40pt;
+      font-weight: 400;
+      letter-spacing: 2px;
+    }
+    
+
+    .event-name {
+      font-size: 12pt;
+      margin-top: 3mm;
+    }
+
+    .content {
+      position: relative;
+      height: 65%;
+      padding: 20mm 25mm 20mm 25mm;
+      box-sizing: border-box;
+      color: #000000;
+    }
+
+    .award-yvaf {
+      font-size: 16pt;
+      margin-bottom: 6mm;
+    }
+
+    .award-label {
+      font-size: 16pt;
+      margin-bottom: 6mm;
+      font-style: italic;
+    }
+
+    .recipient-block {
+      border-left: 3mm solid #f8877f;
+      padding-left: 6mm;
+      margin-bottom: 25mm;
+    }
+
+    .recipient-lastname {
+      font-size: 26pt;
+      font-weight: 500;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .recipient-name {
+      font-size: 22pt;
+      font-weight: 400;
+      line-height: 1.2;
+      margin-top: 2mm;
+    }
+
+    .director-block {
+      position: absolute;
+      left: 25mm;
+      bottom: 30mm;
+      right: 25mm;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      font-size: 10pt;
+    }
+
+    .director-title {
+      max-width: 60mm;
+      line-height: 1.4;
+    }
+
+    .director-signline {
+      margin-top: 8mm;
+      border-top: 0.3mm solid #000000;
+      width: 60mm;
+    }
+
+      .director-signature {
+      height: 30mm; 
+      margin-bottom: 1mm; 
+      position: absolute;
+      left: 250px;
+      top: -10px;
+    }
+
+    .director-name {
+      text-align: right;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .footer {
+      position: absolute;
+      left: 25mm;
+      right: 25mm;
+      bottom: 15mm;
+      font-size: 9pt;
+      color: #8c8c8c;
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="header">
+      <div class="logo">
+        <img src="logo2.png" alt="Сириус" class="logo-image"/>
+      </div>
+
+      <div class="title-block">
+        <div class="title-main">Appreciation letter</div>
+        <div class="event-name">Название конкурса</div>
+      </div>
+    </div>
+
+    <div class="content">
+<div class="award-yvaf">Dear</div>
+      <div class="recipient-block">
+        <div class="recipient-lastname">ФАМИЛИЯ</div>
+        <div class="recipient-name">Имя Отчество</div>
+      </div>
+
+      <div class="award-label">We sincerely thank you for participating in the competition and for your efforts. We appreciate the time and creativity you have put into it.
+We wish you inspiration and further success!</div>
+
+      <div class="director-block">
+        <div>
+          <div class="director-title">
+            Director of the<br />
+            Sirius Educational Center
+          </div>
+          <div class="director-signline"></div>
+        </div>
+         <div class="signature-block">
+          <img src="подпись.png" alt="Подпись" class="director-signature"/>
+        <div class="director-name">
+          ELENA SHMELEVA
+          <br />
+        </div>
+        </div>
+      </div>
+      </div>
+
+      <div class="footer">
+        <div>Russian Federation<br />Federal Territory of Sirius</div>
+        <div>November 14, 2025</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
