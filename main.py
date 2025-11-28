@@ -1,10 +1,10 @@
 from jinja2 import Template
 from weasyprint import HTML
+import pandas as pd
 import os
 
 BASE_URL = os.path.dirname(os.path.abspath( __file__ ))
-
-options = {
+OPTIONS = {
     'encoding': "UTF-8",
     'default_css': '@page { size: A4; margin: 0; }',
 }
@@ -17,12 +17,27 @@ personal_info = {
     "role": "Победитель",
     "place": "3"
 }
-
 event_info = {
     "name": "IT-ROUND",
     "date": "13.02.2077"
 }
 
+def get_participants(table_path: str) -> list[dict]:
+    df = pd.read_excel(table_path)
+    participants_data = []
+
+    for index, row in df.iterrows():
+        participant = {
+            'name': row['Имя'],
+            'surname': row['Фамилия'],
+            'email': row['Email'],
+            'language': row['Язык'],
+            'role': row['Роль'],
+            'place': row['Место']
+        }
+        participants_data.append(participant)
+
+    return participants_data
 
 def render_pdf(event_data: dict, personal_data: dict):
     templates = {
@@ -67,5 +82,7 @@ def render_pdf(event_data: dict, personal_data: dict):
 
     print(f"PDF успешно создан: {pdf_path}")
 
+participants = get_participants(os.path.join(BASE_URL, "example_data.xlsx"))
 
-render_pdf(event_info, personal_info)
+for participant in participants:
+    render_pdf(event_info, participant)
