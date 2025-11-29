@@ -1,71 +1,94 @@
 import base64
-from email.message import EmailMessage
 import os
-import pickle
-
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.mime.application import MIMEApplication
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
-# Use broader scope to ensure sending permissions
-SCOPES = ['https://mail.google.com/']
+SCOPES = ['https://www.googleapis.com/auth/gmail.send']
+MESSAGE_TEMPLATES = {'en': 'Hello, %s! Thanks for your participation. The attachment includes your %s certification.',
+                     'ru': "Здравствуйте, %s! Спасибо за участие. В прикрепленном файле документ, подтверждающий результат вашего участие в %s"}
 
 
-def gmail_send_message():
-    """Create and send an email message"""
+def send_gmail(email: str, name: str, language: str, event_name: str, path: str = "") -> None:
+    if not os.path.exists('credentials.json'):
+        print("Error: credentials.json file not found")
+        return None
+
     creds = None
 
-    # The file token.json stores the user's access and refresh tokens.
     if os.path.exists('token.json'):
-        creds = Credentials.from_authorized_user_file('token.json', SCOPES)
+        try:
+            creds = Credentials.from_authorized_user_file('token.json', SCOPES)
+        except Exception as e:
+            print(f"Error loading token: {e}")
+            creds = None
 
-    # If there are no (valid) credentials available, let the user log in.
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
-            # Remove old token file to ensure fresh authentication
-            if os.path.exists('token.json'):
-                os.remove('token.json')
+            try:
+                creds.refresh(Request())
+            except Exception as e:
+                print(f"Refresh failed: {e}")
+                # If refresh fails, delete the token file and start over
+                if os.path.exists('token.json'):
+                    os.remove('token.json')
+                creds = None
 
-            flow = InstalledAppFlow.from_client_secrets_file(
-                'credentials.json', SCOPES)
-            creds = flow.run_local_server(port=0)
+        if not creds:
+            try:
+                flow = InstalledAppFlow.from_client_secrets_file('credentials.json', SCOPES)
+                creds = flow.run_local_server(port=0)
+            except Exception as e:
+                print(f"Authentication failed: {e}")
+                return None
 
-        # Save the credentials for the next run
-        with open('token.json', 'w') as token:
-            token.write(creds.to_json())
+        # Save credentials only if we have valid ones
+        try:
+            with open('token.json', 'w') as token:
+                token.write(creds.to_json())
+        except Exception as e:
+            print(f"Error saving token: {e}")
+            return None
 
     try:
         service = build('gmail', 'v1', credentials=creds)
 
-        # Verify the credentials have the correct scopes
-        print("Authentication scopes:", creds.scopes)
+        # Create a multipart message for potential attachments
+        message = MIMEMultipart()
+        message['to'] = email
+        message['from'] = 'satunogerm@gmail.com'
+        message['subject'] = event_name
 
-        message = EmailMessage()
-        message.set_content('This is automated draft mail')
-        message['To'] = 'tyfongame@gmail.com'
-        message['From'] = 'satunogerm@gmail.com'
-        message['Subject'] = 'Automated draft'
+        # Add the text body
+        body = MIMEText(MESSAGE_TEMPLATES[language] % (name, event_name))
+        message.attach(body)
 
-        # Encoded message
-        encoded_message = base64.urlsafe_b64encode(message.as_bytes()).decode()
+        # Add attachment if path is provided and file exists
+        if os.path.exists(path):
+            if os.path.exists(path):
+                with open(path, 'rb') as file:
+                    attachment = MIMEApplication(file.read(), _subtype='pdf')
+                    attachment.add_header('Content-Disposition', 'attachment',
+                                          filename=path.split('/')[-1])
+                    message.attach(attachment)
 
-        create_message = {'raw': encoded_message}
-        send_message = service.users().messages().send(
-            userId='me', body=create_message).execute()
+        raw_message = base64.urlsafe_b64encode(message.as_bytes()).decode()
 
-        print(f'Message Id: {send_message["id"]}')
-        print('✓ Email sent successfully!')
-        return send_message
+        result = service.users().messages().send(
+            userId='me',
+            body={'raw': raw_message}
+        ).execute()
+
+        print(f"Message sent to {email}. Message ID: {result['id']}")
 
     except HttpError as error:
-        print(f'An error occurred: {error}')
-        print(f'Error details: {error.error_details if hasattr(error, "error_details") else "No details"}')
-        return None
-
-
-if __name__ == '__main__':
-    gmail_send_message()
+        print(f"HTTP Error: {error}")
+        print(f"Status code: {error.resp.status}")
+        print(f"Error details: {error.error_details}")
+    except Exception as error:
+        print(f"Unexpected error: {error}")
