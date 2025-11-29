@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="356fe446-9349-4fae-a6ff-7a37883a714d" name="Changes" comment="Added pdf conversion">
-      <change afterPath="$PROJECT_DIR$/src/main_.ui" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/save_dialog.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/certificates.db" beforeDir="false" afterPath="$PROJECT_DIR$/certificates.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.ui" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logo.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/logo_.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vector.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/vector_.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

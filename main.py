@@ -394,11 +394,11 @@ class MainWindow(QMainWindow):
             self.pushButton.setText(f"Диалог (Таблица: {table_name})")
 
     def load_images(self):
-        if os.path.exists("src/logo.jpg"):
-            self.label.setPixmap(QPixmap("src/logo.jpg"))
+        if os.path.exists("src/logo.png"):
+            self.label.setPixmap(QPixmap("src/logo.png"))
 
         image_paths = [
-            ("src/vector.jpg", self.label_2),
+            ("src/vector.png", self.label_2),
             ("src/example1.jpg", self.label_3),
             ("src/example3.jpg", self.label_4),
             ("src/example2.jpg", self.label_5),
