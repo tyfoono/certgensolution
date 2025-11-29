@@ -5,18 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="356fe446-9349-4fae-a6ff-7a37883a714d" name="Changes" comment="Added pdf conversion">
-      <change afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/vector.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/123123123/123123123_Александр_Иванов.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/123123123/123123123_Алексей_Новиков.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/123123123/123123123_Анна_Козлова.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/123123123/123123123_Виктория_Лебедева.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/123123123/123123123_Георгий_Тетеков.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/123123123/123123123_Дарья_Морозова.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/123123123/123123123_Дмитрий_Сидоров.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/123123123/123123123_Елена_Васильева.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/123123123/123123123_Иван_Гнученко.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/123123123/123123123_Игорь_Фёдоров.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/123123123/123123123_Мария_Петрова.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/123123123/123123123_Михаил_Попов.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/123123123/123123123_Ольга_Смирнова.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/123123123/123123123_Павел_Соколов.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/certificate_en.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/certificate_en.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/certificate_ru.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/certificate_ru.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/prize_diploma_en.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/prize_diploma_en.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/prize_diploma_ru.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/prize_diploma_ru.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/winner_diploma_en.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/winner_diploma_en.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/winner_diploma_ru.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/winner_diploma_ru.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/winner_place_diploma_en.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/winner_place_diploma_en.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/winner_place_diploma_ru.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/winner_place_diploma_ru.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Хакатон/Хакатон_Александр_Иванов.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Хакатон/Хакатон_Алексей_Новиков.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Хакатон/Хакатон_Анна_Козлова.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Хакатон/Хакатон_Виктория_Лебедева.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Хакатон/Хакатон_Георгий_Тетеков.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Хакатон/Хакатон_Дарья_Морозова.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Хакатон/Хакатон_Дмитрий_Сидоров.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Хакатон/Хакатон_Елена_Васильева.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Хакатон/Хакатон_Иван_Гнученко.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Хакатон/Хакатон_Игорь_Фёдоров.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Хакатон/Хакатон_Мария_Петрова.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Хакатон/Хакатон_Михаил_Попов.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Хакатон/Хакатон_Ольга_Смирнова.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Хакатон/Хакатон_Павел_Соколов.pdf" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,6 +250,9 @@
     </task>
     <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.db" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

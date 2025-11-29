@@ -2,10 +2,7 @@ from jinja2 import Template
 from weasyprint import HTML
 import pandas as pd
 import os
-
-from weasyprint.pdf import generate_pdf
-
-import mail_handler
+from certificate_db import CertificateDatabase
 
 BASE_URL = os.path.dirname(os.path.abspath( __file__ ))
 OPTIONS = {
@@ -13,12 +10,9 @@ OPTIONS = {
     'default_css': '@page { size: A4; margin: 0; }',
 }
 
+# Initialize database
+db = CertificateDatabase()
 
-event_info = {
-    "name": "1",
-    "date": "29.11.2025",
-    "track": "Искусство"
-}
 
 def get_participants(table_path: str) -> list[dict]:
     df = pd.read_excel(table_path)
@@ -85,12 +79,24 @@ def render_pdf(event_data: dict, personal_data: dict):
     if not os.path.exists(pdf_dir):
         os.makedirs(pdf_dir)
 
-    pdf_path = f"{pdf_dir}/{event_data['name']}_{personal_data['name']}_{personal_data['surname']}.pdf"
+    # First add certificate to database to get the ID
+    certificate_id = db.add_certificate(
+        participant_name=personal_data["name"],
+        participant_surname=personal_data["surname"],
+        participant_email=personal_data["email"],
+        event_name=event_data["name"],
+        event_date=event_data["date"],
+        event_category=event_data["track"],
+        participant_role=personal_data["role"],
+        participant_place=personal_data["place"],
+        language=personal_data["language"]
+    )
+
+    # Create PDF path with certificate ID
+    pdf_path = f"{pdf_dir}/cert_{certificate_id:04d}_{event_data['name']}_{personal_data['name']}_{personal_data['surname']}.pdf"
 
     HTML(string=rendered_html, base_url=BASE_URL).write_pdf(pdf_path)
 
-    print(f"PDF успешно создан: {pdf_path}")
+    print(f"PDF успешно создан: {pdf_path} (Certificate ID: {certificate_id})")
     return pdf_path
 
-for participant in get_participants("example_data.xlsx"):
-    render_pdf(event_info, participant)

@@ -100,7 +100,6 @@ class MainWindow(QMainWindow):
         self.dateEdit.setReadOnly(False)
         self.dateEdit.setCalendarPopup(True)
 
-        # Simple stylesheet that actually works
         self.dateEdit.setStyleSheet("""
             QDateEdit {
                 color: black !important;
@@ -129,18 +128,10 @@ class MainWindow(QMainWindow):
             self.label_table_name.setText("Таблица не загружена")
             self.label_table_name.setStyleSheet("QLabel { color: gray; font-style: italic; }")
             self.label_table_name.setAlignment(QtCore.Qt.AlignCenter)
-
             layout_added = False
 
-            layout_names = ['verticalLayout', 'gridLayout', 'horizontalLayout', 'formLayout']
-            for layout_name in layout_names:
-                if hasattr(self, layout_name):
-                    layout = getattr(self, layout_name)
-                    layout.insertWidget(1, self.label_table_name)
-                    layout_added = True
-                    break
             if not layout_added:
-                self.label_table_name.setGeometry(50, 100, 400, 30)  # Adjust as needed
+                self.label_table_name.setGeometry(80, 630, 400, 30)  # Adjust as needed
 
     def set_uploaded_table_name(self, table_name):
         if hasattr(self, 'label_table_name'):
@@ -174,7 +165,6 @@ class MainWindow(QMainWindow):
             print(f"Dialog error: {e}")
 
     def download_certificates(self):
-        # Get selected category
         category = ""
         if self.radioButton.isChecked():
             category = "Наука"
@@ -183,13 +173,10 @@ class MainWindow(QMainWindow):
         elif self.radioButton_3.isChecked():
             category = "Спорт"
 
-        # Get date
         selected_date = self.dateEdit.date().toString("dd.MM.yyyy")
 
-        # Get event name
         event_name = self.textEdit.toPlainText()
 
-        # Validate inputs
         if not category:
             QMessageBox.warning(self, "Ошибка", "Пожалуйста, выберите категорию")
             return
@@ -198,13 +185,11 @@ class MainWindow(QMainWindow):
             QMessageBox.warning(self, "Ошибка", "Пожалуйста, введите название мероприятия")
             return
 
-        # Check if table is uploaded
         if not self.uploaded_table_path or not os.path.exists(self.uploaded_table_path):
             QMessageBox.warning(self, "Ошибка", "Пожалуйста, сначала загрузите таблицу участников")
             return
 
         try:
-            # Generate certificates using the uploaded table
             self.generate_certificates(event_name, category, selected_date, self.uploaded_table_path)
 
             QMessageBox.information(self, "Успех",
@@ -214,35 +199,27 @@ class MainWindow(QMainWindow):
             QMessageBox.critical(self, "Ошибка", f"Ошибка при генерации сертификатов: {str(e)}")
 
     def generate_certificates(self, event_name, category, date, table_path):
-        """Generate certificates using the app.py logic"""
         try:
-            # Import your certificate generation functions
             from app import get_participants, render_pdf
             import mail_handler
 
-            # Set up event info
             event_info = {
                 "name": event_name,
                 "date": date,
                 "track": category
             }
 
-            # Get participants from uploaded table
             participants = get_participants(table_path)
 
-            # Generate PDFs for each participant
             for participant in participants:
                 pdf_path = render_pdf(event_info, participant)
-                print(f"Generated PDF: {pdf_path}")
-
-                # Optional: Send emails (you might want to make this configurable)
-                # mail_handler.send_gmail(
-                #     participant["email"],
-                #     participant["name"],
-                #     participant["language"].lower(),
-                #     event_info["name"],
-                #     pdf_path
-                # )
+                mail_handler.send_gmail(
+                     participant["email"],
+                     participant["name"],
+                     participant["language"].lower(),
+                     event_info["name"],
+                     pdf_path
+                )
 
         except Exception as e:
             raise Exception(f"Certificate generation failed: {str(e)}")
@@ -256,7 +233,6 @@ class MainWindow(QMainWindow):
         )
         if file_path:
             try:
-                # Copy template to templates directory
                 template_name = os.path.basename(file_path)
                 destination = os.path.join("templates", template_name)
                 shutil.copy2(file_path, destination)
