@@ -10,6 +10,9 @@
     <height>1161</height>
    </rect>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: white;</string>
+  </property>
   <property name="maximumSize">
    <size>
     <width>16777215</width>
@@ -22,7 +25,6 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
@@ -42,7 +44,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../Downloads/logo sirius2.jpg</pixmap>
+     <pixmap>logo.jpg</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
@@ -64,7 +66,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../Downloads/лооол.jpg</pixmap>
+     <pixmap>vector.jpg</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
@@ -103,7 +105,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../Downloads/картинка для приложения1.jpg</pixmap>
+     <pixmap>example1.jpg</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label_4">
@@ -136,7 +138,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../Downloads/картинка3.jpg</pixmap>
+     <pixmap>src/example3.jpg</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label_5">
@@ -169,7 +171,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../Downloads/картинка2.jpg</pixmap>
+     <pixmap>src/example2.jpg</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label_6">
@@ -202,7 +204,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../Downloads/картинкаааа.jpg</pixmap>
+     <pixmap>src/example1.jpg</pixmap>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton">
@@ -467,7 +469,7 @@
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>820</y>
+      <y>800</y>
       <width>111</width>
       <height>51</height>
      </rect>
@@ -512,7 +514,7 @@ QRadioButton:checked:hover {
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>820</y>
+      <y>800</y>
       <width>111</width>
       <height>51</height>
      </rect>
@@ -557,7 +559,7 @@ QRadioButton:checked:hover {
     <property name="geometry">
      <rect>
       <x>370</x>
-      <y>820</y>
+      <y>800</y>
       <width>111</width>
       <height>51</height>
      </rect>
@@ -601,30 +603,18 @@ QRadioButton:checked:hover {
    <widget class="QDateEdit" name="dateEdit">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>890</y>
-      <width>221</width>
+      <x>200</x>
+      <y>870</y>
+      <width>400</width>
       <height>31</height>
      </rect>
-    </property>
-    <property name="font">
-     <font>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="contextMenuPolicy">
-     <enum>Qt::CustomContextMenu</enum>
-    </property>
-    <property name="calendarPopup">
-     <bool>true</bool>
     </property>
    </widget>
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>890</y>
+      <x>100</x>
+      <y>870</y>
       <width>241</width>
       <height>31</height>
      </rect>
@@ -642,34 +632,17 @@ QRadioButton:checked:hover {
     <property name="geometry">
      <rect>
       <x>100</x>
-      <y>750</y>
+      <y>760</y>
       <width>371</width>
-      <height>31</height>
+      <height>21</height>
      </rect>
-    </property>
-    <property name="font">
-     <font>
-      <kerning>true</kerning>
-     </font>
-    </property>
-    <property name="verticalScrollBarPolicy">
-     <enum>Qt::ScrollBarAlwaysOff</enum>
-    </property>
-    <property name="horizontalScrollBarPolicy">
-     <enum>Qt::ScrollBarAlwaysOff</enum>
-    </property>
-    <property name="acceptRichText">
-     <bool>false</bool>
-    </property>
-    <property name="placeholderText">
-     <string>Введите название конкурса</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
       <x>160</x>
-      <y>950</y>
+      <y>920</y>
       <width>251</width>
       <height>51</height>
      </rect>
@@ -692,27 +665,7 @@ QRadioButton:checked:hover {
 }</string>
     </property>
     <property name="text">
-     <string>Скачать</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_8">
-    <property name="geometry">
-     <rect>
-      <x>80</x>
-      <y>790</y>
-      <width>211</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>11</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>Выберите направление:</string>
+     <string>Скачать и отправить</string>
     </property>
    </widget>
   </widget>
